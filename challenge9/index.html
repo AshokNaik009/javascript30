@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log('Hello');
+
+    // Interpolated
+    console.log('Add this String %s','This String');
+    // Styled
+    // console.log('%c Using Style Elements','font-size:34px;background:grey;text-shadow:10px 10px 1px white');
+
+    // warning!
+    console.warn(' You did it ');
+
+    // Error :|
+   console.error('There is an Error on line 15,325');
+
+    // Info
+
+    console.info('You have resolved the error');
+
+    // Testing
+     const p =document.querySelector('p');
+
+     console.assert(p.classList.conatins('ouch'),'That is Wrong!');
+
+
+    // clearing
+     console.clear();
+
+    // Viewing DOM Elements
+     console.log(p);
+     consol.dir(p);
+     console.clear();
+    // Grouping together
+     dogs.forEach(dog =>{
+          console.group(`${dog.name}`);
+          console.log(`This is ${dog.name}`);
+          console.log(`This dog ${dog.name} is years old ${dog.age}`);
+          console.groupEnd(`${dog.name}`);     
+
+     });
+
+
+    // counting
+
+   console.count('a_shokn');
+   console.count('a_shokn');
+   console.count('a_shokn');
+   console.count('a_shokn');
+   console.count('a_shokn');
+   console.count('a_shokn');
+
+
+    // timing
+    console.time('Fetching data');
+     fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data=>{
+           console.timeEnd('fetching Data');
+           console.log(data);
+      })
+  </script>
+</body>
+</html>
